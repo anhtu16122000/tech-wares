@@ -1,4 +1,5 @@
 // import { createTheme } from '@material-ui/styles'
+<<<<<<< HEAD
 
 import { createTheme } from '@mui/material'
 import componentOverrides from './componentOverrides'
@@ -21,3 +22,18 @@ const theme = () => {
 }
 
 export default theme
+=======
+import { createTheme } from "@mui/material";
+import componentOverrides from "./componentOverrides";
+import themeTypography from "./typography";
+
+const theme = () => {
+	const themeOptions = {};
+	return createTheme({
+		typography: themeTypography(themeOptions),
+		components: componentOverrides(themeOptions),
+	});
+};
+
+export default theme;
+>>>>>>> feature/init-prettier
