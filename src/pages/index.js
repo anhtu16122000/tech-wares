@@ -1,10 +1,5 @@
-
 const Index = () => {
-  return (
-    <div>
-      ádasư
-    </div>
-  )
-}
+	return <div>ádasư</div>;
+};
 
-export default Index
+export default Index;
