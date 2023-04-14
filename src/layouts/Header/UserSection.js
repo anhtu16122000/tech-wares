@@ -46,7 +46,13 @@ const UserSection = ({ anchorEl }) => {
 						<Divider />
 					</Grid>
 					<Grid item>
-						<MyInput label="Reddit" defaultValue="" id="reddit-input" variant="filled" sx={{ width: "300px" }} />
+						<MyInput
+							label="Reddit"
+							defaultValue=""
+							id="reddit-input"
+							variant="filled"
+							sx={{ width: "300px" }}
+						/>
 					</Grid>
 				</Grid>
 			</Popover>
