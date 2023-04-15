@@ -1,73 +1,14 @@
-import { UilAngleDown, UilShoppingCartAlt } from "@iconscout/react-unicons";
-import { Badge, Box, Container, IconButton, Tooltip, Typography } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
-import SearchSection from "./SearchSection";
-import UserSection from "./UserSection";
+import { useMediaQuery, useTheme } from "@mui/material";
+import Desktop from "./Desktop";
+import Mobile from "./Mobile";
 import useStyles from "./useStyles";
 
 const Header = () => {
-	const classes = useStyles();
-	const [anchorEl, setAnchorEl] = useState(null);
-	const iconSectionRef = useRef(null);
-	useEffect(() => {
-		setAnchorEl(iconSectionRef.current);
-	}, []);
+    const classes = useStyles();
+    const theme = useTheme();
+    const downMd = useMediaQuery(theme.breakpoints.down('md'));
 
-	return (
-		<>
-			<Box component="header" className={classes.root}>
-				<Container maxWidth="md" className={classes.container}>
-					<Box className={classes.logo}>
-						<Typography variant="body1">das</Typography>
-					</Box>
-					<Box className={classes.wrapperMenus}>
-						<Box className={classes.menuItem} display="flex" alignItems="center">
-							<Typography component="span" variant="h6">
-								Collection
-							</Typography>
-							<UilAngleDown className={classes.arrow} />
-							<Box className={classes.underLine} />
-							<Box className={classes.detailMenu}>
-								<Container maxWidth="lg">ádasdlkajsdkla</Container>
-							</Box>
-						</Box>
-						<Box className={classes.menuItem} display="flex" alignItems="center">
-							<Typography component="span" variant="h6">
-								Collection
-							</Typography>
-							<UilAngleDown className={classes.arrow} />
-							<Box className={classes.underLine} />
-						</Box>
-						<Box className={classes.menuItem} display="flex" alignItems="center">
-							<Typography component="span" variant="h6">
-								Collection
-							</Typography>
-							<UilAngleDown className={classes.arrow} />
-							<Box className={classes.underLine} />
-						</Box>
-						<Box className={classes.menuItem} display="flex" alignItems="center">
-							<Typography component="span" variant="h6">
-								Collection
-							</Typography>
-							<UilAngleDown className={classes.arrow} />
-							<Box className={classes.underLine} />
-						</Box>
-					</Box>
-					<Box ref={iconSectionRef} className={classes.icons}>
-						<SearchSection anchorEl={anchorEl} />
-						<UserSection anchorEl={anchorEl} />
-						<Tooltip title="Giỏ hàng">
-							<Badge badgeContent={4} showZero color="primary">
-								<IconButton>
-									<UilShoppingCartAlt />
-								</IconButton>
-							</Badge>
-						</Tooltip>
-					</Box>
-				</Container>
-			</Box>
-		</>
-	);
+	return downMd ? <Mobile classes={classes} /> : <Desktop classes={classes} /> ;
 };
 
 export default Header;

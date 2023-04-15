@@ -2,6 +2,12 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme = {}) => {
 	return {
+        header: {
+            position: 'fixed',
+            zIndex: 999,
+            left: 0,
+            right: 0,
+        },
 		root: {
 			height: "73px",
 			position: "relative",
