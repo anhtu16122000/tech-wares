@@ -1,20 +1,31 @@
+import { narBarHeight } from "@/constants/fixedConst";
 import { UilAngleDown, UilShoppingCartAlt } from "@iconscout/react-unicons";
 import { Badge, Box, Container, IconButton, Tooltip, Typography } from "@mui/material";
+import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import SearchSection from "./SearchSection";
 import UserSection from "./UserSection";
 
 const Desktop = ({classes}) => {
 	const [anchorEl, setAnchorEl] = useState(null);
+    const [fixedHeader, setFixedHeader] = useState(false)
 	const iconSectionRef = useRef(null);
     
 	useEffect(() => {
 		setAnchorEl(iconSectionRef.current);
+        const handleScroll = (event) => {
+            const currentScroll = document.documentElement.scrollTop
+            setFixedHeader(currentScroll >= narBarHeight)
+        }
+        window?.addEventListener('scroll', handleScroll);
+        return () => {
+            window?.removeEventListener('scroll', handleScroll);
+        };
 	}, []);
 
 
 	return (
-		<Box className={classes.header}>
+		<Box className={clsx(classes.header, fixedHeader && classes.headerWhite)}>
 			<Box component="header" className={classes.root}>
 				<Container maxWidth="md" className={classes.container}>
 					<Box className={classes.logo}>

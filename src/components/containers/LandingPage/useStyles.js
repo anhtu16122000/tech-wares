@@ -1,7 +1,6 @@
 const { makeStyles } = require("@mui/styles");
 
 const useStyles = makeStyles( (theme) => {
-    console.log('theme', theme)
     return {
         root: {
             position: 'relative',
@@ -63,6 +62,31 @@ const useStyles = makeStyles( (theme) => {
             width: '11px !important',
             height: '11px !important',
             backgroundColor: 'transparent !important',
+        },
+        thumbnail: {
+            transition: 'transform .75s',
+            '&:hover': {
+                backgroundColor: 'red !important',
+                transform: 'scale(1.12) !important',
+            },
+            aspectRatio: '111/71', 
+            position: 'relative', 
+            '&::after': {
+                content: "''",
+                position: 'absolute',
+                transition: 'transform 0.5s ease-in-out',
+                top: 0,
+                left: 0,
+                bottom: 0,
+                right: 0,
+                backgroundColor: theme.palette.background.default,
+                opacity: 0,
+                transform: 'scaleX(1)',
+            },
+            '&:hover::after': {
+                opacity: 0.3,
+                transform: 'scaleX(0)'
+            }
         },
     }
 })

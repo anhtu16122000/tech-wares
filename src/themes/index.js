@@ -13,7 +13,13 @@ const theme = () => {
 			secondary: {
 				main: "#ffffff",
 			},
+            background: {
+                default: '#f5f5f7',
+            }
 		},
+        shape: {
+            borderRadius: 2,
+        },
 		typography: themeTypography(themeOptions),
 		components: componentOverrides(themeOptions),
 	});

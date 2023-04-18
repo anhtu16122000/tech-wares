@@ -1,3 +1,4 @@
+import { narBarHeight } from "@/constants/fixedConst";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme = {}) => {
@@ -7,9 +8,17 @@ const useStyles = makeStyles((theme = {}) => {
             zIndex: 999,
             left: 0,
             right: 0,
+            "&:hover": {
+                backgroundColor: '#ffffff',
+                borderBottom:'1px solid  #e7e7e7'
+            }
+        },
+        headerWhite: {
+            backgroundColor: '#ffffff',
+            borderBottom:'1px solid  #e7e7e7'
         },
 		root: {
-			height: "73px",
+			height: `${narBarHeight}px`,
 			position: "relative",
 		},
 		popOverPaper: {
@@ -19,7 +28,7 @@ const useStyles = makeStyles((theme = {}) => {
 		detailMenu: {
 			position: "fixed",
 			backgroundColor: "pink",
-			top: "73px",
+			top: `${narBarHeight}px`,
 			left: "0px",
 			right: "0px",
 			transform: "scaleY(0)",
